@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "brunch_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "brunch_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "brunch_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
