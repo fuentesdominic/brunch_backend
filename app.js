@@ -15,6 +15,9 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/')
+app.use('/auth', AuthRouter);
+app.use('/menu', MenuRouter);
+app.use('/restaurant', RestaurantRouter);
+app.use('/user', UserRouter);
 
 app.listen(PORT, () => console.log(`Server Running On Port: ${PORT}`));
