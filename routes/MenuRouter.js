@@ -18,18 +18,18 @@ router.post(
     '/create', 
     middleware.stripToken,
     middleware.verifyToken,
-    controller.CreateCourse);
+    controller.CreateMenu);
     
 router.put(
     '/:id', 
     middleware.stripToken,
     middleware.verifyToken,
-    controller.UpdateCourseById);
+    controller.UpdateMenuById);
     
 router.delete(
     '/:id', 
     middleware.stripToken,
     middleware.verifyToken,
-    controller.DeleteCourseById);
+    controller.DeleteMenuById);
 
 module.exports = router;
