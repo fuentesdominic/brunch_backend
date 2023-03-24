@@ -1,8 +1,8 @@
 # Brunch Backend
 
-## Navigating
+## Description
 
-## Screenshots of application
+## Navigating
 
 ## Technology Used
 
