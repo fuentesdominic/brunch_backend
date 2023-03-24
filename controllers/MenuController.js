@@ -1,0 +1,2 @@
+const { Restaurant } = require('../models');
+
