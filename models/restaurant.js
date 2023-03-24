@@ -12,12 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Restaurant.belongsTo(models.User, {
-        through: models.User,
         foreignKey: 'userId',
         as: 'user_list',
       })
-      Restaurant.hasMany(models.Menu, {
-        through: models.Menu,
+      Restaurant.hasOne(models.Menu, {
         foreignKey: 'restaurantId',
         as: 'restaurant_list',
       })

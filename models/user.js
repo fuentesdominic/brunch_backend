@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasMany(models.Restaurant, {
-        through: models.User,
         foreignKey: 'userId',
         as: 'user_list',
       })

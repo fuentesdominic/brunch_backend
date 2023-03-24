@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const restaurant = require('./restaurant');
 module.exports = (sequelize, DataTypes) => {
   class Menu extends Model {
     /**
@@ -11,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Menu.belongsToMany(models.Restaurant, {
-        through: models.Restaurant,
+      Menu.belongsTo(models.Restaurant, {
         foreignKey: 'restaurantId',
         as: 'restaurant_list',
       })
@@ -21,7 +21,14 @@ module.exports = (sequelize, DataTypes) => {
   Menu.init({
     item: DataTypes.STRING,
     price: DataTypes.STRING,
-    user: DataTypes.STRING
+    user: DataTypes.STRING,
+    restaurantId: {
+      type: DataTypes.INTEGER,
+      references: {
+      model: 'restaurants',
+      key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'Menu',
