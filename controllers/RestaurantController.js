@@ -23,9 +23,10 @@ const GetAllRestaurants = async (req, res) => {
 
 const CreateRestaurant = async (req, res) => {
 	try {
-		const { name } = req.body;
+		const { name, mile_marker } = req.body;
 		const restaurant = await Restaurant.create({
-			name
+			name,
+            mile_marker
 		});
 		return res.status(200).send({
 			msg: `Restaurant was created`,
