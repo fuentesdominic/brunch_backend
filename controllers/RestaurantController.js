@@ -53,9 +53,26 @@ const UpdateRestaurantById = async (req, res) => {
 	}
 };
 
+const DeleteRestaurantById = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const restaurant = await Restaurant.findByPk(id);
+		await Restaurant.destroy({
+			where: { id }
+		});
+		return res.status(200).send({
+			msg: `Student with id ${restaurant.id} was deleted`,
+			payload: restaurant
+		});
+	} catch (err) {
+		throw err;
+	}
+};
+
 module.exports = {
     GetAllRestaurants,
     GetRestaurantById,
     CreateRestaurant,
-    UpdateRestaurantById
-}
+    UpdateRestaurantById,
+    DeleteRestaurantById
+}   

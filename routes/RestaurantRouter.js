@@ -26,10 +26,10 @@ router.put(
     middleware.verifyToken,
     controller.UpdateRestaurantById);
 
-// router.delete(
-//     '/:id', 
-//     middleware.stripToken,
-//     middleware.verifyToken,
-//     controller.DeleteRestaurantById);
+router.delete(
+    '/:id', 
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.DeleteRestaurantById);
 
 module.exports = router;
