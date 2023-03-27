@@ -9,6 +9,19 @@ const GetAllUsers = async (req, res) => {
 	}
 };
 
+const CreateUser = async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const user = await User.create({
+        email,
+        password,
+      });
+      res.send(user);
+    } catch (err) {
+      throw err;
+    }
+  };
+
 module.exports = {
     GetAllUsers,
 }
