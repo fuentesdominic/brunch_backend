@@ -1,4 +1,5 @@
 const { Restaurant } = require('../models');
+const restaurant = require('../models/restaurant');
 
 const GetAllRestaurants = async (req, res) => {
 	try {
@@ -20,7 +21,23 @@ const GetAllRestaurants = async (req, res) => {
 	}
 };
 
+const CreateRestaurant = async (req, res) => {
+	try {
+		const { name } = req.body;
+		const restaurant = await Restaurant.create({
+			name
+		});
+		return res.status(200).send({
+			msg: `Restaurant was created`,
+			payload: restaurant
+		});
+	} catch (err) {
+		throw err;
+	}
+};
+
 module.exports = {
     GetAllRestaurants,
     GetRestaurantById,
+    CreateRestaurant
 }

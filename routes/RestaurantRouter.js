@@ -14,11 +14,11 @@ router.get(
     middleware.verifyToken,
     controller.GetRestaurantById);
 
-// router.post(
-//     '/create', 
-//     middleware.stripToken,
-//     middleware.verifyToken,
-//     controller.CreateRestaurant);
+router.post(
+    '/create', 
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.CreateRestaurant);
 
 // router.put(
 //     '/:id', 
