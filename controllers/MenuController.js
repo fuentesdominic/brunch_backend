@@ -1,5 +1,4 @@
 const { Menu } = require('../models');
-const restaurant = require('../models/restaurant');
 
 const GetAllMenus = async (req, res) => {
 	try {

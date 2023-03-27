@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Restaurant.belongsTo(models.User, {
-        foreignKey: 'userId',
+        foreignKey: 'user',
         as: 'user_list',
       })
       Restaurant.hasOne(models.Menu, {
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   Restaurant.init({
     name: DataTypes.STRING,
     mile_marker: DataTypes.STRING,
-    userId: { 
+    user: { 
       type: DataTypes.INTEGER,
       references: {
       model: 'users',

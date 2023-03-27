@@ -6,30 +6,30 @@ router.get(
     "/", 
     middleware.stripToken,
     middleware.verifyToken,
-    controller.GetAllCourses);
+    controller.GetAllRestaurants);
 
-router.get(
-    '/:id', 
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.GetCourseById);
+// router.get(
+//     '/:id', 
+//     middleware.stripToken,
+//     middleware.verifyToken,
+//     controller.GetRestaurantById);
 
-router.post(
-    '/create', 
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.CreateCourse);
+// router.post(
+//     '/create', 
+//     middleware.stripToken,
+//     middleware.verifyToken,
+//     controller.CreateRestaurant);
 
-router.put(
-    '/:id', 
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.UpdateCourseById);
+// router.put(
+//     '/:id', 
+//     middleware.stripToken,
+//     middleware.verifyToken,
+//     controller.UpdateRestaurantById);
 
-router.delete(
-    '/:id', 
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.DeleteCourseById);
+// router.delete(
+//     '/:id', 
+//     middleware.stripToken,
+//     middleware.verifyToken,
+//     controller.DeleteRestaurantById);
 
 module.exports = router;
