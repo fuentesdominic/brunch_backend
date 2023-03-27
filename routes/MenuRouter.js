@@ -14,11 +14,11 @@ router.get(
     middleware.verifyToken,
     controller.GetMenuById);
     
-// router.post(
-//     '/create', 
-//     middleware.stripToken,
-//     middleware.verifyToken,
-//     controller.CreateMenu);
+router.post(
+    '/create', 
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.CreateMenu);
     
 // router.put(
 //     '/:id', 
