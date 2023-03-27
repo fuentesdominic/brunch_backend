@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require('../controllers/GradeController');
+const controller = require('../controllers/UserController');
 const middleware = require('../middleware');
 
 router.get(

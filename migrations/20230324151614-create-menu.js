@@ -18,6 +18,9 @@ module.exports = {
       user: {
         type: Sequelize.STRING
       },
+      restaurantId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

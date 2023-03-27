@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require('../controllers/AuthController');
+const controller = require('../controllers/MenuController');
 const middleware = require('../middleware');
 
 router.get(
@@ -12,24 +12,24 @@ router.get(
     '/:id', 
     middleware.stripToken,
     middleware.verifyToken,
-    controller.GetCourseById);
+    controller.GetMenuById);
     
-router.post(
-    '/create', 
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.CreateMenu);
+// router.post(
+//     '/create', 
+//     middleware.stripToken,
+//     middleware.verifyToken,
+//     controller.CreateMenu);
     
-router.put(
-    '/:id', 
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.UpdateMenuById);
+// router.put(
+//     '/:id', 
+//     middleware.stripToken,
+//     middleware.verifyToken,
+//     controller.UpdateMenuById);
     
-router.delete(
-    '/:id', 
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.DeleteMenuById);
+// router.delete(
+//     '/:id', 
+//     middleware.stripToken,
+//     middleware.verifyToken,
+//     controller.DeleteMenuById);
 
 module.exports = router;
