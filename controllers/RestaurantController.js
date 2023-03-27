@@ -45,7 +45,7 @@ const UpdateRestaurantById = async (req, res) => {
 			returning: true
 		});
 		return res.status(200).send({
-			msg: `Student with id ${restaurant.Id} was updated`,
+			msg: `Student with id ${restaurantId} was updated`,
 			payload: updatedRestaurant
 		});
 	} catch (err) {
