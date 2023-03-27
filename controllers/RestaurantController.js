@@ -45,7 +45,7 @@ const UpdateRestaurantById = async (req, res) => {
 			returning: true
 		});
 		return res.status(200).send({
-			msg: `Student with id ${restaurantId} was updated`,
+			msg: `Restaurant with id ${restaurantId} was updated`,
 			payload: updatedRestaurant
 		});
 	} catch (err) {
@@ -61,7 +61,7 @@ const DeleteRestaurantById = async (req, res) => {
 			where: { id }
 		});
 		return res.status(200).send({
-			msg: `Student with id ${restaurant.id} was deleted`,
+			msg: `Restaurant with id ${restaurant.id} was deleted`,
 			payload: restaurant
 		});
 	} catch (err) {
