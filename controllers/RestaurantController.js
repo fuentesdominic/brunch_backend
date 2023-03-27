@@ -9,12 +9,12 @@ const GetAllRestaurants = async (req, res) => {
 	}
   };
 
-  const GetRestuarantById = async (req, res) => {
+  const GetRestaurantById = async (req, res) => {
 	try {
 		const restaurantId = parseInt(req.params.id);
 		const restaurant = await Restaurant.findByPk(restaurantId, {
 		});
-		res.send();
+		res.send(restaurant);
 	} catch (err) {
 		throw err;
 	}
@@ -22,4 +22,5 @@ const GetAllRestaurants = async (req, res) => {
 
 module.exports = {
     GetAllRestaurants,
+    GetRestaurantById,
 }
