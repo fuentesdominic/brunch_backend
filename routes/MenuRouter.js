@@ -20,16 +20,16 @@ router.post(
     middleware.verifyToken,
     controller.CreateMenu);
     
-// router.put(
-//     '/:id', 
-//     middleware.stripToken,
-//     middleware.verifyToken,
-//     controller.UpdateMenuById);
+router.put(
+    '/:id', 
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.UpdateMenuById);
     
-// router.delete(
-//     '/:id', 
-//     middleware.stripToken,
-//     middleware.verifyToken,
-//     controller.DeleteMenuById);
+router.delete(
+    '/:id', 
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.DeleteMenuById);
 
 module.exports = router;
