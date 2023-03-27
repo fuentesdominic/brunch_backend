@@ -37,8 +37,25 @@ const CreateRestaurant = async (req, res) => {
 	}
 };
 
+const UpdateRestaurantById = async (req, res) => {
+	try {
+		const restaurantId = parseInt(req.params.id);
+		const updatedRestaurant = await Restaurant.update(req.body, {
+			where: { id: restaurantId },
+			returning: true
+		});
+		return res.status(200).send({
+			msg: `Student with id ${restaurant.Id} was updated`,
+			payload: updatedRestaurant
+		});
+	} catch (err) {
+		throw err;
+	}
+};
+
 module.exports = {
     GetAllRestaurants,
     GetRestaurantById,
-    CreateRestaurant
+    CreateRestaurant,
+    UpdateRestaurantById
 }

@@ -20,11 +20,11 @@ router.post(
     middleware.verifyToken,
     controller.CreateRestaurant);
 
-// router.put(
-//     '/:id', 
-//     middleware.stripToken,
-//     middleware.verifyToken,
-//     controller.UpdateRestaurantById);
+router.put(
+    '/:id', 
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.UpdateRestaurantById);
 
 // router.delete(
 //     '/:id', 
