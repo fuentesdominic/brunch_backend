@@ -8,4 +8,10 @@ router.get(
     middleware.verifyToken,
     controller.GetAllUsers);
 
+router.post(
+    '/create',
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.CreateUser);
+
 module.exports = router;
