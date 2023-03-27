@@ -9,6 +9,17 @@ const GetAllRestaurants = async (req, res) => {
 	}
   };
 
+  const GetRestuarantById = async (req, res) => {
+	try {
+		const restaurantId = parseInt(req.params.id);
+		const restaurant = await Restaurant.findByPk(restaurantId, {
+		});
+		res.send();
+	} catch (err) {
+		throw err;
+	}
+};
+
 module.exports = {
     GetAllRestaurants,
 }
