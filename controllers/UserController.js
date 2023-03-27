@@ -11,10 +11,10 @@ const GetAllUsers = async (req, res) => {
 
 const CreateUser = async (req, res) => {
     try {
-      const { email, password } = req.body;
+      const { name, email } = req.body;
       const user = await User.create({
-        email,
-        password,
+        name,
+        email
       });
       res.send(user);
     } catch (err) {
@@ -24,4 +24,5 @@ const CreateUser = async (req, res) => {
 
 module.exports = {
     GetAllUsers,
+    CreateUser
 }
