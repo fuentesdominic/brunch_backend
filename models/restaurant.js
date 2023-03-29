@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   Restaurant.init({
     name: DataTypes.STRING,
     mile_marker: DataTypes.STRING,
+    picture_url: DataTypes.STRING,
     user: { 
       type: DataTypes.INTEGER,
       references: {
