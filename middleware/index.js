@@ -20,9 +20,14 @@ const createToken = (payload) => {
   return token;
 };
 
+// code to adapt to adding restaurants
 const stripToken = (req, res, next) => {
   try {
-    const token = req.headers["authorization"].split(" ")[1];
+    const authHeader = req.headers["authorization"];
+    if (!authHeader) {
+      throw new Error("Authorization header missing");
+    }
+    const token = authHeader.split(" ")[1];
     if (token) {
       res.locals.token = token;
       return next();
@@ -33,6 +38,21 @@ const stripToken = (req, res, next) => {
     res.status(401).send({ status: "Error", msg: "Strip Token Error!" });
   }
 };
+
+//orignial striptoken
+// const stripToken = (req, res, next) => {
+//   try {
+//     const token = req.headers["authorization"].split(" ")[1];
+//     if (token) {
+//       res.locals.token = token;
+//       return next();
+//     }
+//     res.status(401).send({ status: "Error", msg: "Unauthorized" });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(401).send({ status: "Error", msg: "Strip Token Error!" });
+//   }
+// };
 
 const verifyToken = (req, res, next) => {
   const { token } = res.locals;
