@@ -12,7 +12,8 @@ const GetAllMenus = async (req, res) => {
   const GetMenuById = async (req, res) => {
 	try {
 		const restaurantId = parseInt(req.params.id);
-		const menu = await Menu.findByPk(restaurantId, {
+		const menu = await Menu.findAll({
+			where: { restaurantId: restaurantId}
 		});
 		res.send(menu);
 	} catch (err) {
@@ -23,9 +24,11 @@ const GetAllMenus = async (req, res) => {
 const CreateMenu = async (req, res) => {
 	try {
 		const { item, price } = req.body;
+		const restaurantId = parseInt(req.params.id)
 		const menu = await Menu.create({
 			item, 
-            price
+            price,
+			restaurantId
 		});
 		return res.status(200).send({
 			msg: `Menu was created`,
@@ -54,14 +57,13 @@ const UpdateMenuById = async (req, res) => {
 
 const DeleteMenuById = async (req, res) => {
 	try {
-		const { id } = req.params;
-		const menu = await Menu.findByPk(id);
 		await Menu.destroy({
-			where: { id }
+			where: { id: +req.params.restaurantId }
 		});
-		return res.status(200).send({
-			msg: `Menu with id ${menu.id} was deleted`,
-			payload: menu
+		res.send({
+			msg: `Item was deleted`,
+			payload: req.params.restaurantId,
+			staus: 'Ok'
 		});
 	} catch (err) {
 		throw err;
