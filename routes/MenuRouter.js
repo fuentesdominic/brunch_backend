@@ -15,7 +15,7 @@ router.get(
     controller.GetMenuById);
     
 router.post(
-    '/create', 
+    '/create/:id', 
     middleware.stripToken,
     middleware.verifyToken,
     controller.CreateMenu);
