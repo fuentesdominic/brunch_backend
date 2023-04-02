@@ -21,6 +21,18 @@ const GetAllMenus = async (req, res) => {
 	}
 };
 
+const GetOneMenuItem = async (req, res) => {
+	try {
+		const itemId = parseInt(req.params.id)
+		const item = await Menu.findOne({
+			where: { id: itemId }
+		})
+		res.send(item)
+	} catch (err) {
+		throw err;
+	}
+}
+
 const CreateMenu = async (req, res) => {
 	try {
 		const { item, price } = req.body;
@@ -57,13 +69,14 @@ const UpdateMenuById = async (req, res) => {
 
 const DeleteMenuById = async (req, res) => {
 	try {
+		const id = req.params.id;
+		const menu = await Menu.findByPk(id) 
 		await Menu.destroy({
-			where: { id: +req.params.restaurantId }
+			where: { id }
 		});
-		res.send({
-			msg: `Item was deleted`,
-			payload: req.params.restaurantId,
-			staus: 'Ok'
+		return res.status(200).send({
+			msg: `Menu item was deleted`,
+			payload: menu,
 		});
 	} catch (err) {
 		throw err;
@@ -75,5 +88,6 @@ module.exports = {
     GetMenuById,
     CreateMenu,
     UpdateMenuById,
-    DeleteMenuById
+    DeleteMenuById, 
+	GetOneMenuItem
 }

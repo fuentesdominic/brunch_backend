@@ -51,16 +51,17 @@ const UpdateRestaurantById = async (req, res) => {
 	}
 };
 
+
 const DeleteRestaurantById = async (req, res) => {
 	try {
-		const { id } = req.params;
-		const restaurant = await Restaurant.findByPk(id);
+		const id = req.params.id;
+		const restaurant = await Restaurant.findByPk(id) 
 		await Restaurant.destroy({
 			where: { id }
 		});
 		return res.status(200).send({
-			msg: `Restaurant with id ${restaurant.id} was deleted`,
-			payload: restaurant
+			msg: `Restaurant was deleted`,
+			payload: restaurant,
 		});
 	} catch (err) {
 		throw err;

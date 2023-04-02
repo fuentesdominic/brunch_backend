@@ -13,6 +13,12 @@ router.get(
     middleware.stripToken,
     middleware.verifyToken,
     controller.GetMenuById);
+
+router.get(
+    '/item/:id', 
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.GetOneMenuItem);
     
 router.post(
     '/create/:id', 
