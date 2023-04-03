@@ -29,7 +29,7 @@ Brunch is an application that allows the user to view, edit, and delete restaura
 
 ## Credits
 
--[Click here to use Brunch!]()
+-[Click here to use Brunch!](https://brunch-fuentesdominic.vercel.app/register)
 -[Information about the Lake of the Ozarks](https://www.funlake.com/)
 -[Understanding CRUD](https://geeksforgeeks.com/)
 -[Using User Authentication](https://stackoverflow.com/)
