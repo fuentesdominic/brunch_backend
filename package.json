@@ -13,6 +13,9 @@
   "name": "brunch_backend",
   "description": "## Description",
   "version": "1.0.0",
+  "engines": {
+    "node": "19.x"
+  },
   "main": "index.js",
   "scripts": {
     "build": "npm install && npx sequelize-cli db:migrate",
